@@ -2,6 +2,7 @@ const primaryColor = 0xFFFFFFFF;
 const secondaryColor = 0xFFC72600;
 const tartiaryColor = 0xFFD1D5DB;
 const backgroundColor = 0xFFFFFFFF;
+const lightSecondaryColor = 0xFFFFF9F9;
 // const textColor = 0xFF000000;
 // const errorColor = 0xFFB00020;
 // const warningColor = 0xFFFFC107;
