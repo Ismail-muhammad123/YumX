@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodi/core/widgets/primary_button.dart';
-import 'package:foodi/features/widgets/code_verification_field.dart';
-import 'package:foodi/features/widgets/form_page.dart';
+import 'package:foodi/core/widgets/code_verification_field.dart';
+import 'package:foodi/core/widgets/form_page.dart';
 
 class CodeVerificationPage extends StatefulWidget {
   final String email;

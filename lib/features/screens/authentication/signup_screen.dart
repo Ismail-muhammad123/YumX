@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodi/core/constants/colors.dart';
-import 'package:foodi/features/widgets/form_field.dart';
+import 'package:foodi/core/widgets/form_field.dart';
 import '../../../core/widgets/primary_button.dart';
 import '../../../core/di/service_locator.dart';
 import '../../auth/auth_service.dart';
