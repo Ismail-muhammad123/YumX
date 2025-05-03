@@ -114,6 +114,47 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             const SizedBox(height: 12),
             ListTile(
+              onTap: () async {
+                bool? res = await showDialog(
+                  context: context,
+                  builder:
+                      (context) => AlertDialog(
+                        content: Column(
+                          children: [
+                            MaterialButton(
+                              onPressed: () => Navigator.of(context).pop(true),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              color: Color(secondaryColor),
+                              minWidth: 300,
+                              child: Text(
+                                "Yes",
+                                style: TextStyle(color: Color(primaryColor)),
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            MaterialButton(
+                              onPressed: () => Navigator.of(context).pop(false),
+                              shape: RoundedRectangleBorder(
+                                side: BorderSide(color: Color(secondaryColor)),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              color: Color(primaryColor),
+                              minWidth: 300,
+                              child: Text(
+                                "No",
+                                style: TextStyle(color: Color(secondaryColor)),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                );
+                if (res == true) {
+                  // TODO: implement logout
+                }
+              },
               tileColor: Color(lightSecondaryColor),
               leading: Icon(Icons.logout, color: Colors.red),
               title: Text("Logout"),
