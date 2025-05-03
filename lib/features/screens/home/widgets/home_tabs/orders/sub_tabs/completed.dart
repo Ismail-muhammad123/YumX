@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:foodi/core/constants/colors.dart';
 
-class COmpletedOrders extends StatefulWidget {
-  const COmpletedOrders({super.key});
+class CompletedOrders extends StatefulWidget {
+  const CompletedOrders({super.key});
 
   @override
-  State<COmpletedOrders> createState() => _COmpletedOrdersState();
+  State<CompletedOrders> createState() => _CompletedOrdersState();
 }
 
-class _COmpletedOrdersState extends State<COmpletedOrders> {
+class _CompletedOrdersState extends State<CompletedOrders> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(

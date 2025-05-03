@@ -39,6 +39,7 @@ dependencies:
   get_it: 
   provider:
   font_awesome_flutter: ^10.8.0 
+  intl:
 
 
 dev_dependencies:

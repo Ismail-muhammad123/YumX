@@ -47,7 +47,7 @@ class _OrdersTabState extends State<OrdersTab>
       ),
       body: TabBarView(
         controller: _tabController,
-        children: [CartTab(), OngoingOrders(), COmpletedOrders()],
+        children: [CartTab(), OngoingOrders(), CompletedOrders()],
       ),
     );
   }

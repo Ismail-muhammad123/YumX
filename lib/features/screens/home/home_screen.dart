@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:foodi/core/constants/colors.dart';
 import 'package:foodi/features/screens/home/widgets/home_tabs/explore_tab.dart';
+import 'package:foodi/features/screens/home/widgets/home_tabs/orders/orders_tab.dart';
+import 'package:foodi/features/screens/profile/profile_page.dart';
+import 'package:foodi/features/screens/support/support_page.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -17,7 +20,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
     int currentIndex = 0;
 
-    List<Widget> _tabs = [ExploreTab(searchController: searchController)];
+    List<Widget> _tabs = [
+      ExploreTab(searchController: searchController),
+      OrdersTab(),
+      SupportPage(),
+      ProfilePage(),
+    ];
 
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
@@ -32,10 +40,10 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: Icon(Icons.shopping_bag),
             label: "Orders",
           ),
-          // BottomNavigationBarItem(
-          //   icon: Icon(Icons.list_alt_rounded),
-          //   label: "History",
-          // ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.contact_support_outlined),
+            label: "Support",
+          ),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
         ],
       ),
