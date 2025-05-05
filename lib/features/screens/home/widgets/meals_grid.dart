@@ -25,7 +25,7 @@ class _MealsGridState extends State<MealsGrid> {
                 widget.title ?? "",
                 style: const TextStyle(
                   fontSize: 18,
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
               const Spacer(),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:foodi/core/constants/colors.dart';
 import 'package:foodi/features/models/chef_model.dart';
 import 'package:foodi/features/screens/home/chef/chef_details.dart';
+import 'package:foodi/features/screens/home/chef/chef_list.dart';
 import 'package:foodi/features/screens/home/widgets/rounded_image.dart';
 
 class ChefsGridView extends StatefulWidget {
@@ -60,18 +61,29 @@ class ChefsGridViewState extends State<ChefsGridView> {
             ),
           );
         }),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(Icons.apps, color: Color(secondaryColor), size: 40),
-            const SizedBox(height: 5),
-            Text(
-              "More",
-              style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
-            ),
-          ],
+        GestureDetector(
+          onTap:
+              () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => ChefList(searchController: null),
+                ),
+              ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(Icons.apps, color: Color(secondaryColor), size: 40),
+              const SizedBox(height: 5),
+              Text(
+                "More",
+                style: const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ],
+          ),
         ),
       ],
     );

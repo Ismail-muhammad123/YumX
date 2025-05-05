@@ -8,7 +8,7 @@ class ChefListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 100,
+      height: 140,
       width: double.maxFinite,
       margin: const EdgeInsets.only(bottom: 10),
       decoration: BoxDecoration(
@@ -18,11 +18,11 @@ class ChefListTile extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            height: 100,
+            height: 140,
             width: 120,
             decoration: BoxDecoration(
               image: const DecorationImage(
-                image: AssetImage("assets/images/meal.png"),
+                image: AssetImage("assets/images/banner.png"),
                 fit: BoxFit.cover,
               ),
               borderRadius: BorderRadius.circular(10),
@@ -33,41 +33,49 @@ class ChefListTile extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text("Chef Name"),
+              const Text(
+                "Chef Name",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              ),
               const SizedBox(height: 5),
-              const Text("Chef Description"),
+              const Text(
+                "Chef Description",
+                style: TextStyle(fontSize: 14, color: Colors.grey),
+              ),
               const SizedBox(height: 5),
               Row(
                 children: [
-                  Icon(
-                    FontAwesomeIcons.motorcycle,
-                    color: Colors.green,
-                    size: 15,
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8.0),
+                    child: Icon(
+                      FontAwesomeIcons.motorcycle,
+                      color: Colors.green,
+                      size: 15,
+                    ),
                   ),
                   const Text(
                     "N 2000",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: Color(secondaryColor),
-                    ),
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
                   ),
                 ],
               ),
               const SizedBox(height: 5),
               Row(
                 children: [
-                  Icon(
-                    FontAwesomeIcons.clock,
-                    color: Color(secondaryColor),
-                    size: 15,
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8.0),
+                    child: Icon(
+                      FontAwesomeIcons.solidClock,
+                      color: Color(secondaryColor),
+                      size: 15,
+                    ),
                   ),
                   const Text(
                     "30 mins . 1km",
                     style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: Color(secondaryColor),
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.grey,
                     ),
                   ),
                 ],
@@ -75,17 +83,20 @@ class ChefListTile extends StatelessWidget {
               const SizedBox(height: 5),
               Row(
                 children: [
-                  Icon(
-                    FontAwesomeIcons.star,
-                    color: const Color.fromARGB(255, 255, 131, 29),
-                    size: 15,
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8.0),
+                    child: Icon(
+                      Icons.star_outlined,
+                      color: const Color.fromARGB(255, 255, 131, 29),
+                      size: 20,
+                    ),
                   ),
                   const Text(
                     "3.9 . 1400+ ratings",
                     style: TextStyle(
                       fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: Color(secondaryColor),
+                      fontWeight: FontWeight.w500,
+                      color: Colors.grey,
                     ),
                   ),
                 ],
