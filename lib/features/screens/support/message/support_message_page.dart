@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodi/core/constants/colors.dart';
 import 'package:foodi/features/models/support_message.dart';
 import 'package:intl/intl.dart';
 
@@ -59,16 +60,16 @@ class _SupportMessagePageState extends State<SupportMessagePage> {
                   ? Colors.orange.shade100
                   : Colors.grey.shade200,
           borderRadius: BorderRadius.only(
-            topLeft: const Radius.circular(12),
-            topRight: const Radius.circular(12),
+            topLeft: const Radius.circular(20),
+            topRight: const Radius.circular(20),
             bottomLeft:
                 message.isSentByMe
-                    ? const Radius.circular(12)
+                    ? const Radius.circular(20)
                     : const Radius.circular(0),
             bottomRight:
                 message.isSentByMe
                     ? const Radius.circular(0)
-                    : const Radius.circular(12),
+                    : const Radius.circular(20),
           ),
         ),
         child: Column(
@@ -79,7 +80,7 @@ class _SupportMessagePageState extends State<SupportMessagePage> {
             Align(
               alignment: Alignment.bottomRight,
               child: Text(
-                "${timeText} ${message.isRead ? "✓✓" : "✓"}",
+                "$timeText ${message.isRead ? "✓✓" : "✓"}",
                 style: const TextStyle(fontSize: 10, color: Colors.grey),
               ),
             ),
@@ -92,24 +93,49 @@ class _SupportMessagePageState extends State<SupportMessagePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: GestureDetector(
-          onTap: () => Navigator.of(context).pop(),
-          child: Icon(Icons.arrow_back_ios),
-        ),
-        title: Row(
-          children: [
-            CircleAvatar(
-              radius: 15,
-              child: Placeholder(),
-              // TODO: add user profile pic and name
-            ),
-            Text("Kabeer"),
-          ],
-        ),
-      ),
       body: Column(
         children: [
+          SizedBox(height: 50),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 10),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                GestureDetector(
+                  onTap: () => Navigator.of(context).pop(),
+                  child: Icon(Icons.keyboard_arrow_left, size: 40),
+                ),
+                Expanded(
+                  child: Column(
+                    children: [
+                      Container(
+                        height: 60,
+                        width: 60,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: AssetImage("assets/images/banner.png"),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          "Kabeer",
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+
           Expanded(
             child: ListView.builder(
               reverse: true,
@@ -129,9 +155,12 @@ class _SupportMessagePageState extends State<SupportMessagePage> {
                 Expanded(
                   child: TextField(
                     controller: _controller,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       hintText: "Type a message",
-                      border: OutlineInputBorder(),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Color(secondaryColor)),
+                      ),
                       contentPadding: EdgeInsets.symmetric(
                         horizontal: 12,
                         vertical: 10,
@@ -141,7 +170,7 @@ class _SupportMessagePageState extends State<SupportMessagePage> {
                 ),
                 const SizedBox(width: 8),
                 IconButton(
-                  icon: const Icon(Icons.send, color: Colors.orange),
+                  icon: const Icon(Icons.send, color: Color(secondaryColor)),
                   onPressed: _sendMessage,
                 ),
               ],

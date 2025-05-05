@@ -14,34 +14,77 @@ class _OngoingOrdersState extends State<OngoingOrders> {
     return ListView.builder(
       itemBuilder: (context, index) {
         return Padding(
-          padding: const EdgeInsets.symmetric(vertical: 12.0),
+          padding: const EdgeInsets.all(12.0),
           child: SizedBox(
             child: Column(
               children: [
-                Text("Food"),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [Text("Food")],
+                  ),
+                ),
+                Divider(thickness: 1),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      height: 50,
-                      width: 50,
+                      height: 60,
+                      width: 60,
                       decoration: BoxDecoration(
-                        color: Colors.grey,
+                        color: const Color.fromARGB(255, 190, 190, 190),
                         borderRadius: BorderRadius.circular(8),
                       ),
                     ),
-                    Column(
-                      children: [
-                        Row(children: [Text("Pizza Hut"), Text("#456789")]),
-                        Row(children: [Text("\$21.1"), Text("| 02 items")]),
-                      ],
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "Pizza Hut",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Text("#456789"),
+                              ],
+                            ),
+                            SizedBox(height: 10),
+                            Row(
+                              children: [
+                                Text(
+                                  "\$21.1",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                SizedBox(width: 5),
+                                Text("|"),
+                                SizedBox(width: 5),
+                                Text("02 items"),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ],
                 ),
+                SizedBox(height: 10),
                 Row(
                   children: [
                     MaterialButton(
+                      minWidth: 150,
                       onPressed: () {
-                        // TODO imaplement track order btn function
+                        // TODO imaplement checkout function
                       },
                       color: Color(secondaryColor),
                       shape: RoundedRectangleBorder(
@@ -54,8 +97,9 @@ class _OngoingOrdersState extends State<OngoingOrders> {
                     ),
                     Spacer(),
                     MaterialButton(
+                      minWidth: 150,
                       onPressed: () {
-                        // TODO imaplement cancel order  function
+                        // TODO imaplement checkout function
                       },
 
                       color: Color(primaryColor),

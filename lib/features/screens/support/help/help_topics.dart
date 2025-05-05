@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodi/core/constants/colors.dart';
 import 'package:foodi/features/screens/support/help/help_details.dart';
 
 class SupportFaqPage extends StatefulWidget {
@@ -27,15 +28,23 @@ class _SupportFaqPageState extends State<SupportFaqPage> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         leading: CircleAvatar(
-          backgroundColor: Color(0xFFFEEBE9),
+          backgroundColor: Color(lightSecondaryColor),
           child: IconButton(
-            icon: Icon(Icons.arrow_back, color: Colors.red),
+            icon: Icon(Icons.keyboard_arrow_left, color: Color(secondaryColor)),
             onPressed: () => Navigator.pop(context),
           ),
         ),
-        title: Text("Support", style: TextStyle(color: Colors.black)),
+        title: Text(
+          "FAQs",
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         elevation: 0,
       ),
+      backgroundColor: Color(primaryColor),
       body: ListView.separated(
         itemCount: faqs.length,
         separatorBuilder: (_, __) => Divider(height: 1),
@@ -45,7 +54,7 @@ class _SupportFaqPageState extends State<SupportFaqPage> {
             trailing: Icon(
               Icons.arrow_forward_ios,
               size: 16,
-              color: Colors.red,
+              color: Color(secondaryColor),
             ),
             onTap: () {
               Navigator.push(

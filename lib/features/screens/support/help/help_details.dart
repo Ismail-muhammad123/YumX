@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodi/core/constants/colors.dart';
 
 class FaqDetailPage extends StatelessWidget {
   @override
@@ -7,15 +8,16 @@ class FaqDetailPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         leading: CircleAvatar(
-          backgroundColor: Color(0xFFFEEBE9),
+          backgroundColor: Color(lightSecondaryColor),
           child: IconButton(
-            icon: Icon(Icons.arrow_back, color: Colors.red),
+            icon: Icon(Icons.arrow_back_ios, color: Color(secondaryColor)),
             onPressed: () => Navigator.pop(context),
           ),
         ),
-        title: Text("Support", style: TextStyle(color: Colors.black)),
+        title: Text("FAGs", style: TextStyle(color: Colors.black)),
         elevation: 0,
       ),
+      backgroundColor: Color(primaryColor),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
