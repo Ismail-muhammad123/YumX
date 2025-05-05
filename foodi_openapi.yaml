@@ -1,0 +1,481 @@
+
+openapi: 3.0.0
+info:
+  title: Foodi API
+  version: 1.0.0
+  description: API spec for the Foodi app
+
+servers:
+  - url: https://api.foodi.com/v1
+
+paths:
+
+  /user-addresses:
+    get:
+      summary: Get all user addresses
+      responses:
+        '200':
+          description: List of addresses
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserAddress'
+    post:
+      summary: Add a user address
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserAddress'
+      responses:
+        '201':
+          description: Address created
+
+  /meal-categories:
+    get:
+      summary: Get all meal categories
+      responses:
+        '200':
+          description: List of meal categories
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MealCategory'
+    post:
+      summary: Add a meal category
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MealCategory'
+      responses:
+        '201':
+          description: Meal category created
+
+  /chefs:
+    get:
+      summary: Get all chefs
+      responses:
+        '200':
+          description: List of chefs
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ChefModel'
+    post:
+      summary: Add a chef
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChefModel'
+      responses:
+        '201':
+          description: Chef created
+
+  /dishes:
+    get:
+      summary: Get all dishes
+      responses:
+        '200':
+          description: List of dishes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DishModel'
+    post:
+      summary: Add a dish
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DishModel'
+      responses:
+        '201':
+          description: Dish created
+
+  /orders:
+    get:
+      summary: Get all orders
+      responses:
+        '200':
+          description: List of orders
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OrderModel'
+    post:
+      summary: Create an order
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderModel'
+      responses:
+        '201':
+          description: Order created
+
+  /order-items:
+    get:
+      summary: Get all order items
+      responses:
+        '200':
+          description: List of order items
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OrderItems'
+    post:
+      summary: Add an order item
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderItems'
+      responses:
+        '201':
+          description: Order item created
+
+  /order-tracking:
+    get:
+      summary: Get all order tracking details
+      responses:
+        '200':
+          description: List of tracking info
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OrderTrackingModel'
+    post:
+      summary: Add tracking info
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderTrackingModel'
+      responses:
+        '201':
+          description: Tracking info created
+
+  /profiles:
+    get:
+      summary: Get all user profiles
+      responses:
+        '200':
+          description: List of user profiles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProfileModel'
+    post:
+      summary: Create a user profile
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProfileModel'
+      responses:
+        '201':
+          description: Profile created
+
+  /messages:
+    get:
+      summary: Get all messages
+      responses:
+        '200':
+          description: List of messages
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Message'
+    post:
+      summary: Send a message
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Message'
+      responses:
+        '201':
+          description: Message sent
+
+  /cart-items/{id}:
+    get:
+      summary: Get a cart item by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Cart item found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CartItemModel'
+    put:
+      summary: Update a cart item
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CartItemModel'
+      responses:
+        '200':
+          description: Cart item updated
+    delete:
+      summary: Delete a cart item
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Deleted
+
+  /user-addresses:
+    get:
+      summary: Get all user addresses
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserAddress'
+    post:
+      summary: Create a new address
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserAddress'
+      responses:
+        '201':
+          description: Address created
+
+components:
+  schemas:
+    CartItemModel:
+      type: object
+      properties:
+        id:
+          type: string
+        dish:
+          $ref: '#/components/schemas/DishModel'
+        addedAt:
+          type: string
+          format: date-time
+        quantity:
+          type: integer
+
+    UserAddress:
+      type: object
+      properties:
+        street:
+          type: string
+        address:
+          type: string
+        postCode:
+          type: string
+        apartment:
+          type: string
+        label:
+          type: string
+
+    MealCategory:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        imageUrl:
+          type: string
+
+    ChefModel:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        imageUrl:
+          type: string
+        description:
+          type: string
+        location:
+          type: string
+        phoneNumber:
+          type: string
+        email:
+          type: string
+        deliveryFee:
+          type: number
+        rating:
+          type: number
+        numberOfReviews:
+          type: integer
+        openingHours:
+          type: string
+        closingHours:
+          type: string
+        deliveryTime:
+          type: string
+
+    DishModel:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        imageUrl:
+          type: string
+        price:
+          type: number
+        availableQuantity:
+          type: integer
+        isBestSeller:
+          type: boolean
+        category:
+          $ref: '#/components/schemas/MealCategory'
+        chef:
+          $ref: '#/components/schemas/ChefModel'
+
+    OrderModel:
+      type: object
+      properties:
+        orderId:
+          type: string
+        customerName:
+          type: string
+        orderDate:
+          type: string
+        orderItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderItems'
+        totalAmount:
+          type: number
+        promocode:
+          type: string
+        discount:
+          type: number
+        deliveryFee:
+          type: number
+        tax:
+          type: number
+        status:
+          type: string
+        paymentMethod:
+          type: string
+        deliveryAddress:
+          type: string
+        deliveryDateTime:
+          type: string
+        orderDateTime:
+          type: string
+
+    OrderItems:
+      type: object
+      properties:
+        itemId:
+          type: string
+        quantity:
+          type: integer
+        price:
+          type: number
+        dish:
+          $ref: '#/components/schemas/DishModel'
+
+    OrderTrackingModel:
+      type: object
+      properties:
+        courierName:
+          type: string
+        courierPhoneNumber:
+          type: string
+        courierImageUrl:
+          type: string
+        orderStatus:
+          type: string
+        orderId:
+          type: string
+        deliveryAddress:
+          type: string
+        deliveryTime:
+          type: string
+        orderDate:
+          type: string
+
+    ProfileModel:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        address:
+          type: string
+        profilePicture:
+          type: string
+        userType:
+          type: string
+
+    Message:
+      type: object
+      properties:
+        text:
+          type: string
+        time:
+          type: string
+          format: date-time
+        isSentByMe:
+          type: boolean
+        isRead:
+          type: boolean
