@@ -32,9 +32,11 @@ class _CodeVerificationPageState extends State<CodeVerificationPage> {
         }
       } else {
         t.cancel();
-        setState(() {
-          if (mounted) resendIn = null;
-        });
+        if (mounted) {
+          setState(() {
+            resendIn = null;
+          });
+        }
       }
     });
   }

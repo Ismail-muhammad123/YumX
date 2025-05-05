@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
 class CustomFormField extends StatefulWidget {
-  final TextEditingController fieldController;
+  final TextEditingController? fieldController;
   final String? label;
   final bool isPassword;
+  final Color? fillColor;
   const CustomFormField({
     super.key,
     this.label,
-    required this.fieldController,
+    this.fillColor,
+    this.fieldController,
     this.isPassword = false,
   });
 
@@ -29,7 +31,7 @@ class _CustomFormFieldState extends State<CustomFormField> {
           borderSide: BorderSide.none,
         ),
 
-        fillColor: Colors.grey.withOpacity(0.3),
+        fillColor: widget.fillColor ?? Colors.grey.withOpacity(0.3),
         filled: true,
 
         suffix:
