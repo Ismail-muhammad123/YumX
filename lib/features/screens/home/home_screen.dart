@@ -13,40 +13,56 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int currentIndex = 0;
+
+  List<Widget> tabs = [ExploreTab(), OrdersTab(), SupportPage(), ProfilePage()];
+
   @override
   Widget build(BuildContext context) {
-    final searchController = TextEditingController();
-
-    int currentIndex = 0;
-
-    List<Widget> _tabs = [
-      ExploreTab(searchController: searchController),
-      OrdersTab(),
-      SupportPage(),
-      ProfilePage(),
-    ];
-
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: const Color(secondaryColor),
-        unselectedItemColor: Colors.grey,
-        currentIndex: currentIndex,
-        showUnselectedLabels: true,
-        onTap: (value) => setState(() => currentIndex = value),
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.explore), label: "Explore"),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_bag),
-            label: "Orders",
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.4),
+              blurRadius: 12.0,
+              offset: Offset(2, 2),
+            ),
+          ],
+        ),
+        child: ClipRRect(
+          borderRadius: const BorderRadius.only(
+            topRight: Radius.circular(24),
+            topLeft: Radius.circular(24),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.contact_support_outlined),
-            label: "Support",
+          child: BottomNavigationBar(
+            selectedItemColor: const Color(secondaryColor),
+            unselectedItemColor: Colors.grey,
+            currentIndex: currentIndex,
+            showUnselectedLabels: true,
+            onTap: (value) => setState(() => currentIndex = value),
+            items: const [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.explore),
+                label: "Explore",
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.shopping_bag),
+                label: "Orders",
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.contact_support_outlined),
+                label: "Support",
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person),
+                label: "Profile",
+              ),
+            ],
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
-        ],
+        ),
       ),
-      body: _tabs[currentIndex],
+      body: tabs[currentIndex],
     );
   }
 }

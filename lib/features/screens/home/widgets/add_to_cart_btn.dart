@@ -14,10 +14,13 @@ class AddToCartButton extends StatelessWidget {
       onPressed: onTap,
       child: Row(
         children: [
-          Icon(
-            FontAwesomeIcons.bagShopping,
-            color: Color(secondaryColor),
-            size: 20,
+          Padding(
+            padding: const EdgeInsets.only(right: 8.0),
+            child: Icon(
+              FontAwesomeIcons.bagShopping,
+              color: Color(secondaryColor),
+              size: 20,
+            ),
           ),
           Text("Add to Cart"),
         ],

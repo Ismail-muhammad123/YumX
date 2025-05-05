@@ -19,10 +19,13 @@ class PrimaryButton extends StatelessWidget {
       // ),
       color: Color(secondaryColor),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      height: 60,
-      minWidth: 50,
+      height: 50,
+      minWidth: 200,
       onPressed: onPressed,
-      child: Text(label),
+      child: Text(
+        label,
+        style: TextStyle(color: Color(primaryColor), fontSize: 18),
+      ),
     );
   }
 }

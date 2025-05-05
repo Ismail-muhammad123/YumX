@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 class CustomFormField extends StatefulWidget {
   final TextEditingController fieldController;
-  final String label;
+  final String? label;
   final bool isPassword;
   const CustomFormField({
     super.key,
-    required this.label,
+    this.label,
     required this.fieldController,
     this.isPassword = false,
   });
@@ -22,11 +22,16 @@ class _CustomFormFieldState extends State<CustomFormField> {
     return TextField(
       controller: widget.fieldController,
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.all(6.0),
+        contentPadding: EdgeInsets.all(12.0),
         labelText: widget.label,
-        border: InputBorder.none,
-        fillColor: Colors.grey,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide.none,
+        ),
+
+        fillColor: Colors.grey.withOpacity(0.3),
         filled: true,
+
         suffix:
             widget.isPassword
                 ? GestureDetector(

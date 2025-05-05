@@ -17,42 +17,46 @@ class _MealsGridState extends State<MealsGrid> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          children: [
-            Text(
-              widget.title ?? "",
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
-            ),
-            const Spacer(),
-            TextButton(
-              onPressed: () {
-                // TODO add view all meals functionality
-              },
-              child: const Text(
-                "View All",
-                style: TextStyle(
-                  fontSize: 14,
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            children: [
+              Text(
+                widget.title ?? "",
+                style: const TextStyle(
+                  fontSize: 18,
                   fontWeight: FontWeight.w500,
-                  color: Color(0xfff79116),
                 ),
               ),
-            ),
-          ],
-        ),
-        const SizedBox(height: 10),
-        GridView.builder(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            childAspectRatio: 0.8,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
+              const Spacer(),
+              TextButton(
+                onPressed: () {
+                  // TODO add view all meals functionality
+                },
+                child: const Text(
+                  "View All",
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xfff79116),
+                  ),
+                ),
+              ),
+            ],
           ),
-          itemCount: widget.meals.length,
-          itemBuilder: (context, index) {
-            return MealGridCard(meal: widget.meals[index]);
-          },
+        ),
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: GridView.count(
+              crossAxisCount: 2,
+              childAspectRatio: 0.85,
+              crossAxisSpacing: 14,
+              mainAxisSpacing: 20,
+              children:
+                  widget.meals.map((meal) => MealGridCard(meal: meal)).toList(),
+            ),
+          ),
         ),
       ],
     );

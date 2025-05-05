@@ -36,30 +36,32 @@ class _CuisinesHorizontalListState extends State<CuisinesHorizontalList> {
             ),
           ],
         ),
-        ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: widget.categories.length,
-          itemExtent: 100,
-          itemBuilder:
-              (context, index) => Container(
-                margin: const EdgeInsets.only(right: 10),
-                child: Column(
-                  children: [
-                    RoundedImage(
-                      image: NetworkImage(widget.categories[index].imageUrl),
-                      size: 50,
-                    ),
-                    const SizedBox(height: 5),
-                    Text(
-                      "Cuisine $index",
-                      style: const TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500,
+        Flexible(
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: widget.categories.length,
+            itemExtent: 100,
+            itemBuilder:
+                (context, index) => Container(
+                  margin: const EdgeInsets.only(right: 10),
+                  child: Column(
+                    children: [
+                      RoundedImage(
+                        image: NetworkImage(widget.categories[index].imageUrl),
+                        size: 50,
                       ),
-                    ),
-                  ],
+                      const SizedBox(height: 5),
+                      Text(
+                        "Cuisine $index",
+                        style: const TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
+          ),
         ),
       ],
     );

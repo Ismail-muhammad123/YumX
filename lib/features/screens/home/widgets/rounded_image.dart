@@ -7,6 +7,7 @@ class RoundedImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // return CircleAvatar(radius: (size ?? 40) / 2, child: image);
     return Container(
       height: size,
       width: size,
