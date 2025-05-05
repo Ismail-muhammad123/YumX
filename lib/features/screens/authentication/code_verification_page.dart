@@ -5,7 +5,6 @@ import 'package:foodi/core/widgets/primary_button.dart';
 import 'package:foodi/core/widgets/code_verification_field.dart';
 import 'package:foodi/core/widgets/form_page.dart';
 import 'package:foodi/features/screens/authentication/success_page.dart';
-import 'package:intl/intl.dart';
 
 class CodeVerificationPage extends StatefulWidget {
   final String email;

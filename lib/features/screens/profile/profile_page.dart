@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:foodi/core/constants/colors.dart';
 import 'package:foodi/features/screens/authentication/login_screen.dart';
-import 'package:foodi/features/screens/home/widgets/home_tabs/orders/sub_tabs/cart.dart';
 import 'package:foodi/features/screens/profile/address_page.dart';
 import 'package:foodi/features/screens/profile/favourites.dart';
 import 'package:foodi/features/screens/profile/notifications.dart';

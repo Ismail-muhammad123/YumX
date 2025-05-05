@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:foodi/core/constants/colors.dart';
 import 'package:foodi/core/widgets/form_field.dart';
 import 'package:foodi/core/widgets/form_page.dart';
 import '../../../core/widgets/primary_button.dart';
